@@ -1,6 +1,8 @@
-print('Demo 1')
+print('START')
 
-for i in range(10):
-  print(i)
+print((0.1+0.1+0.1) == 0.3)
 
-print('Done!')
+print('END')
+
+ 
+
