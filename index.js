@@ -1,5 +1,5 @@
 console.log('START');
 
-console.log(0.1 + 0.1 + 0.1 == 0.3);
+(10).
 
 console.log('END');
