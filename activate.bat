@@ -1,1 +1,3 @@
-.\virtual-environment\Scripts\activate
+cd .\virtual-environment\Scripts
+
+.\activate
