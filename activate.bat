@@ -1,3 +1,3 @@
 cd .\virtual-environment\Scripts
 
-.\activate
+.\activate && cd ../..

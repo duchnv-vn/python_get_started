@@ -35,6 +35,10 @@
 # print('===== CLASS END =====')
 
 print('===== VARIABLE START =====')
-car = 1
+budget = 3000
+
+car = 'TOYOTA' if budget > 2000 else 'VINFAST'
+
 print(car)
+
 print('===== VARIABLE END =====')
