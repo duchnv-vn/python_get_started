@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 ## List
 listA = list([1,2,3,4])
 listB = [1,2,3,4]
@@ -32,13 +34,35 @@ list2OfTupleB[0] = 0
 # print('listOfTupleB', listOfTupleB, type(listOfTupleB))
 # print('list2OfTupleB', list2OfTupleB, type(list2OfTupleB))
 # print('tupleC', tupleC, type(tupleC))
-print('tupleD', tupleD, type(tupleD))
+# print('tupleD', tupleD, type(tupleD))
 
 ## String
 strA = 'Python\'best features'
-strOfTupleD = str(tupleD)
-tupleOfStrOfTupleD = tuple(strOfTupleD)
 
 # print('strA', strA, type(strA))
-print('strOfTupleD', strOfTupleD, type(strOfTupleD))
-print('tupleOfStrOfTupleD', tupleOfStrOfTupleD, type(tupleOfStrOfTupleD))
+
+## Manipulating
+listC = [1,2,3,4,5]
+listC[0:3] = ['a','b']
+del listC[0]
+listC.extend([6,7,8])
+listC.extend((9,10))
+listC.extend('cde')
+
+# print('listC', listC, type(listC))
+
+## Shallow & deep copying sequences
+listD = [[1,2],'a','b']
+copyOfListD = listD.copy()
+copyOfListD[1] = 'c'
+
+listE = [[1,(2,3)],1,'b']
+copyOfListE = deepcopy(listE)
+
+
+# print('compare listD and copyOfListD',copyOfListD[1] is listD[1])
+# print('listD', listD, type(listD))
+# print('copyOfListD', copyOfListD, type(copyOfListD))
+print('compare listE and copyOfListE',copyOfListE[0][1] is listE[0][1])
+print('listE', listE, type(listE))
+print('copyOfListE', copyOfListE, type(copyOfListE))
