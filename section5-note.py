@@ -9,6 +9,7 @@ listB = [1,2,3,4]
 
 # print('listA', listA,listA[-1], len(listA), type(listA))
 
+## -------------------------------------------------------------------------------------
 ## Tuple
 tupleA = tuple([1, 'a', True, [2,3]])
 tupleB = (1,'a', True, [2,3])
@@ -36,11 +37,13 @@ list2OfTupleB[0] = 0
 # print('tupleC', tupleC, type(tupleC))
 # print('tupleD', tupleD, type(tupleD))
 
+## -------------------------------------------------------------------------------------
 ## String
 strA = 'Python\'best features'
 
 # print('strA', strA, type(strA))
 
+## -------------------------------------------------------------------------------------
 ## Manipulating
 listC = [1,2,3,4,5]
 listC[0:3] = ['a','b']
@@ -51,6 +54,7 @@ listC.extend('cde')
 
 # print('listC', listC, type(listC))
 
+## -------------------------------------------------------------------------------------
 ## Shallow & deep copying sequences
 listD = [[1,2],'a','b']
 copyOfListD = listD.copy()
@@ -59,10 +63,27 @@ copyOfListD[1] = 'c'
 listE = [[1,(2,3)],1,'b']
 copyOfListE = deepcopy(listE)
 
+listF = [1,2,3]
+copyOfListF = listF[:]
+copyOfListF.append(4)
 
 # print('compare listD and copyOfListD',copyOfListD[1] is listD[1])
 # print('listD', listD, type(listD))
 # print('copyOfListD', copyOfListD, type(copyOfListD))
-print('compare listE and copyOfListE',copyOfListE[0][1] is listE[0][1])
-print('listE', listE, type(listE))
-print('copyOfListE', copyOfListE, type(copyOfListE))
+# print('listF', listF, type(listF))
+# print('copyOfListF', copyOfListF, type(copyOfListF))
+# print('compare listE and copyOfListE',copyOfListE[0][1] is listE[0][1])
+# print('listE', listE, type(listE))
+# print('copyOfListE', copyOfListE, type(copyOfListE))
+
+## -------------------------------------------------------------------------------------
+## Unpacking sequence
+listG = [1,2,3]
+
+a,b,c = listG
+
+a,b=b,a
+
+# print('a', a)
+# print('b', b)
+# print('c', c)
