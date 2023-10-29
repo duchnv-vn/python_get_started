@@ -22,12 +22,15 @@ data = (
 
 latest_greatest_value = data[0]
 
-for row in data:
-    distance = row[2] - row[1] if row[2] >= row[1] else row[1] - row[2]
+for row_index, row in enumerate(data):
+    distance = abs(row[2] - row[1])
 
     row.append(distance)
 
-    if row[0] > latest_greatest_value[0] and row[len(row) -1] > latest_greatest_value[len(latest_greatest_value) -1]:
+    if row_index == 0:
+        continue
+
+    if row[0] > latest_greatest_value[0] and distance > latest_greatest_value[-1]:
         latest_greatest_value = row
 
 data = list(data)
@@ -47,11 +50,9 @@ data3 = [
 for row_index, row in enumerate(data3):
     if(row_index == 0):
         row.append('')
-        continue
-
-    minus = (row[0] - data3[row_index -1][1])
-    str = 'up' if minus > 0 else 'down' if minus < 0  else 'same'
-
-    row.append(str)
+    else:
+        minus = (row[0] - data3[row_index -1][1])
+        str = 'up' if minus > 0 else 'down' if minus < 0  else 'same'
+        row.append(str)
 
 print('data3', data3)
