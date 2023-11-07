@@ -1,20 +1,34 @@
-l = [1,2,3,4,5]
+## ITERABLES & ITERATORS
+r = range(0, 10)
+iterator = iter(r)
 
-i = iter(l)
+# iterator.__next__()
+# iterator.__next__()
+# iterator.__next__()
 
-# i.__next__()
-# i.__next__()
-# i.__next__()
-# i.__next__()
-# i.__next__()
+# l = list(iterator)
 
-# print('i', i)
-# print(i.__next__())
+# print('l', l)
 
-try:
-    raise KeyError('custom message')
-except KeyError as ex:
-    print('1', ex)
-    pass
-except Exception as ex:
-    print('2', ex)
+## --------------------------------------------------------
+## GENERATORS
+g = (i ** 2 for i in range(5))
+
+# g.__next__()
+
+# print('g', g.__next__())
+# print('g', g.__next__())
+# print('g', g.__next__())
+# print('g', g.__next__())
+# print('g', g.__next__())
+
+checkItemInGenerator= 3 in g
+
+print('1', checkItemInGenerator)
+
+l = list(g)
+
+
+print('2', g)
+print('3', l)
+
