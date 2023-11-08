@@ -21,8 +21,30 @@ l = [*[3,4],5,*[6,7,*[8,9]]]
 # star_agument('a', 3.14, 'b')
 ## ---------------------------------------------------------
 # Default values
-def function_b(arg, arg2=2):
+def function_b(arg, arg2=2, arg3=True):
   print('arg', arg)
   print('arg2', arg2)
+  print('arg3', arg3)
 
-# function_b(1)
+# function_b(1, arg3=False)
+
+def process_row(row, item_sep=','):
+   row_str = item_sep.join(str(item)for item in row)
+   return row_str
+
+def process_data(data, item_sep=',', line_sep='\n'):
+  row_strs = (process_row(row, item_sep) for row in data)
+  output = line_sep.join(row_strs)
+  return output
+
+data = [
+   [10, 20, 30],
+   [100, 200, 300],
+   [1000, 2000, 3000],
+]
+
+data_str = process_data(data)
+
+print('START data_str')
+print(data_str)
+print('END data_str')
