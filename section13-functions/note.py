@@ -9,8 +9,9 @@ def function_a(text_1 = '', text_2 = ''):
 # print('str', str)
 ## ---------------------------------------------------------
 # Star arguments
-def star_agument(*values):
+def star_agument(*values, end):
     print('values', values)
+    print('end', end)
 
 l = [*[3,4],5,*[6,7,*[8,9]]]
 
@@ -18,7 +19,7 @@ l = [*[3,4],5,*[6,7,*[8,9]]]
 
 # star_agument( )
 # star_agument(*l)
-# star_agument('a', 3.14, 'b')
+# star_agument('a', 3.14, end='b')
 ## ---------------------------------------------------------
 # Default values
 def function_b(arg, arg2=2, arg3=True):
@@ -43,8 +44,18 @@ data = [
    [1000, 2000, 3000],
 ]
 
-data_str = process_data(data)
+# data_str = process_data(data)
 
-print('START data_str')
-print(data_str)
-print('END data_str')
+# print('START data_str')
+# print(data_str)
+# print('END data_str')
+## ---------------------------------------------------------
+# Keyword-only argument
+def keyword_only_fuc(a, b, *args, **kwargs):
+   print('a', a)
+   print('b', b)
+   print('args', args)
+  #  print('c', c)
+   print('kwargs', kwargs)
+
+# keyword_only_fuc(1, 2, 3, 4, e=5, d=6)
