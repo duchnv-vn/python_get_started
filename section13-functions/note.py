@@ -58,4 +58,4 @@ def keyword_only_fuc(a, b, *args, **kwargs):
   #  print('c', c)
    print('kwargs', kwargs)
 
-# keyword_only_fuc(1, 2, 3, 4, e=5, d=6)
+keyword_only_fuc(1, 2, 3, 4, e=5, d=6)
