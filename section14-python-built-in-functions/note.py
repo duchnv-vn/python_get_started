@@ -34,9 +34,21 @@ max_2 = max((), default=100)
 ## zip function
 list_1_zip = ['a', 'b', 'c', 'd']
 list_2_zip = (1, 2, 3)
-list_3_zip = (True, False)
+# list_3_zip = (True, False)
 
-zipped_1 = zip(list_1_zip, list_2_zip, list_3_zip)
+zipped_1 = zip(list_1_zip, list_2_zip)
 
-print(f'zipped_1 1: {list(zipped_1)}')
-print(f'zipped_1 2: {list(zipped_1)}')
+# print(f'zipped_1 1: {dict(zipped_1)}')
+# print(f'zipped_1 2: {list(zipped_1)}')
+
+data = [
+  ('item1', 10, 100.0),
+  ('item2', 5, 25.0),
+  ('item3', 100, 0.2)
+]
+
+schema = ('widget', 'num_sold', 'unit_price')
+
+d = {row[0]: dict(zip(schema[1:],row[1:])) for row in data}
+
+print('d', d)
