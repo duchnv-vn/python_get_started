@@ -25,7 +25,7 @@ def generate_cards(*, suits, ranks, reverse=False):
 
 result_2 = generate_cards(suits=suits_2, ranks=ranks_2)
 
-print(f"result_2: {list(result_2)}")
+# print(f"result_2: {list(result_2)}")
 
 ## ---------------------------------------------
 ## QUESTION 3
@@ -119,7 +119,7 @@ def filter_func_3(f, data):
 
 exe_4 = filter_func_3(filter_criteria, quotes_4)
 
-result_4 = exe_4()
+result_4 = exe_4(5)
 
 # print(f"result_4: {list(result_4)}")
 
@@ -129,7 +129,7 @@ l_5 = [5, 6, -4, -8]
 
 
 def find_smallest_5(data):
-    return min(data, key=lambda n: abs(n))
+    return min(data, key=abs)
 
 
 result_5 = find_smallest_5(l_5)
