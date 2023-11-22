@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Basic Python learning repository",
   "scripts": {
-    "commit": "bash ./scripts/commit.sh"
+    "commit": "bash ./scripts/commit.sh",
+    "site": "bash ./scripts/open_course_site.sh",
+    "new": "bash ./scripts/new_section.sh"
   },
   "author": "duchnv-vn",
   "license": "ISC"
