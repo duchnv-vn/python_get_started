@@ -2,9 +2,9 @@ import math
 from time import perf_counter
 
 ## QUESTION 1
-f1 = lambda x: x ** 2 -1
-f2 = lambda x: abs(x - 2)
-f3 = lambda x: math.sin(x)
+# f1 = lambda x: x ** 2 -1
+# f2 = lambda x: abs(x - 2)
+# f3 = lambda x: math.sin(x)
 
 ## ------------------------------------------
 ## QUESTION 2
