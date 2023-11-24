@@ -1,7 +1,7 @@
 ## round function
 round_num = round(3.324, 2)
 
-# print(f'round_num: {round_num}')
+print(f'round_num: {round_num}')
 
 ## --------------------------------------------
 ## sorted function
@@ -51,4 +51,4 @@ schema = ('widget', 'num_sold', 'unit_price')
 
 d = {row[0]: dict(zip(schema[1:],row[1:])) for row in data}
 
-print('d', d)
+# print('d', d)
