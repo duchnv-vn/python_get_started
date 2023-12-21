@@ -1,3 +1,8 @@
+import csv
+from datetime import datetime
+from decimal import Decimal
+
+
 class Person:
     """
     This string is used for document this class
@@ -58,4 +63,31 @@ address_1 = Address(
     province_name="Thu Duc",
 )
 
-print(address_1.get_full_address())
+
+class DataPoint:
+    def __init__(self, *, date, value):
+        self.date = datetime.strptime(date, "%Y-%m-%d").date()
+        self.value = Decimal(value)
+
+
+class Forex:
+    def __init__(self, *, file_path):
+        self.file_path = file_path
+        self.data = self.process_data()
+
+    def process_data(self):
+        with open(self.file_path) as file:
+            reader = csv.reader(file)
+
+            next(reader)
+
+            return [
+                DataPoint(date=date, value=value)
+                for date, value in reader
+                if value != '.'
+            ]
+
+
+forex = Forex(file_path='section26-custom-classes/files/DEXUSEU.csv')
+
+print(forex.data[0].value)
