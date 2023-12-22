@@ -71,9 +71,21 @@ class DataPoint:
 
 
 class Forex:
-    def __init__(self, *, file_path):
+    def __init__(self, *, file_path: str):
         self.file_path = file_path
         self.data = self.process_data()
+
+    def __str__(self):
+        return self.file_path
+
+    def __repr__(self):
+        return f"Forex({self.file_path})"
+
+    def __eq__(self, other: object):
+        if isinstance(other, self.__class__):
+            return self.file_path == other.file_path
+
+        return False
 
     def process_data(self):
         with open(self.file_path) as file:
@@ -84,10 +96,13 @@ class Forex:
             return [
                 DataPoint(date=date, value=value)
                 for date, value in reader
-                if value != '.'
+                if value != "."
             ]
 
 
-forex = Forex(file_path='section26-custom-classes/files/DEXUSEU.csv')
+forex_1 = Forex(file_path="section26-custom-classes/files/DEXUSEU.csv")
+forex_2 = Forex(file_path="section26-custom-classes/files/DEXUSEU.csv")
 
-print(forex.data[0].value)
+print(forex_1)
+print(repr(forex_1))
+print(forex_1 == forex_2)
