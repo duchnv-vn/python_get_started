@@ -73,19 +73,29 @@ class DataPoint:
 class Forex:
     def __init__(self, *, file_path: str):
         self.file_path = file_path
+
         self.data = self.process_data()
 
-    def __str__(self):
-        return self.file_path
+    @property
+    def root_folder(self):
+        return "section26-custom-classes/files"
 
-    def __repr__(self):
-        return f"Forex({self.file_path})"
+    @property
+    def file_path(self):
+        return self._file_path
+
+    @file_path.setter
+    def file_path(self, value):
+        self.validate_file_path(value)
+
+        self._file_path = f'{self.root_folder}/{value}'
+
+    @property
+    def row_number(self):
+        return len(self.data)
 
     def __eq__(self, other: object):
-        if isinstance(other, self.__class__):
-            return self.file_path == other.file_path
-
-        return False
+        return isinstan_ce(other, self.__class__) and other.file_path == self.file_path
 
     def process_data(self):
         with open(self.file_path) as file:
@@ -99,10 +109,16 @@ class Forex:
                 if value != "."
             ]
 
+    def validate_file_path(self, value):
+        if not (isinstance(value, str)):
+            raise ValueError('file_path must be string.')
 
-forex_1 = Forex(file_path="section26-custom-classes/files/DEXUSEU.csv")
-forex_2 = Forex(file_path="section26-custom-classes/files/DEXUSEU.csv")
 
-print(forex_1)
-print(repr(forex_1))
-print(forex_1 == forex_2)
+forex_1 = Forex(file_path="DEXUSEU.csv")
+# forex_2 = Forex(file_path="DEXUSEU.csv")
+
+# print(forex_1 == forex_2)
+
+print(forex_1.row_number)
+print(forex_1._file_path)
+print(forex_1.file_path)
