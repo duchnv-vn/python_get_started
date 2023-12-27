@@ -5,7 +5,11 @@ name = "pypi"
 
 [packages]
 requests = "*"
-numpy = "==1.26.0"
+numpy = "*"
+scipy = "*"
+pandas = "*"
+matplotlib = "*"
+mplfinance = "*"
 
 [dev-packages]
 
