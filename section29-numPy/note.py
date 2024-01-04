@@ -51,4 +51,20 @@ h_stack = np.hstack((stack_arr_1, stack_arr_2))
 # print(f'stack_arr_2: {stack_arr_2}')
 # print(f'v_stack: {v_stack}')
 # print(f'h_stack: {h_stack}')
-print(f'stack_arr_3: {stack_arr_3.astype(np.uint16)}')
+# print(f'stack_arr_3: {stack_arr_3.astype(np.uint16)}')
+
+# === 4. INDEXING
+arr_4 = np.arange(1, 26).reshape((5, 5))
+slice_arr_4 = arr_4[::2, 1::2]
+
+# print(arr_4)
+# print("-" * 50)
+# print(slice_arr_4)
+
+# === 5. SLICING
+arr_5 = np.arange(1, 31).reshape(5, 6)
+slicing_arr_5 = arr_5[0:3, 2:5]
+
+print(arr_5)
+print("-" * 50)
+print(slicing_arr_5)
