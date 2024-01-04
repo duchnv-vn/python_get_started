@@ -65,6 +65,23 @@ slice_arr_4 = arr_4[::2, 1::2]
 arr_5 = np.arange(1, 31).reshape(5, 6)
 slicing_arr_5 = arr_5[0:3, 2:5]
 
-print(arr_5)
+# print(arr_5)
+# print("-" * 50)
+# print(slicing_arr_5)
+
+# === 6. FANCY INDEXING
+arr_6 = np.arange(1, 26).reshape(5, 5)
+
+fancy_arr_6_1 = arr_6[np.array([0, 1, 3, 4])]
+
+fancy_arr_6_2 = arr_6[1, np.array([0, 1, 3])]
+
+fancy_arr_6_3 = arr_6[np.array([0, 1, 3]), 1]
+
+print(arr_6)
 print("-" * 50)
-print(slicing_arr_5)
+print(fancy_arr_6_1)
+print("-" * 50)
+print(fancy_arr_6_2)
+print("-" * 50)
+print(fancy_arr_6_3)
