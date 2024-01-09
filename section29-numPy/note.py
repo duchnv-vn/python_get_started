@@ -96,5 +96,16 @@ with open("section29-numPy/files/AAPL.csv") as file:
     diffs = open_and_close[:, 1] - open_and_close[:, 0]
     diff_percs = (diffs % open_and_close[:, 0]) * 100
 
-print(open_and_close)
-print(diffs)
+# print(open_and_close)
+# print(diffs)
+
+# === 7. MASKING
+arr_7 = np.arange(1, 11)
+
+less_arr_7 = np.less(arr_7, 0)
+less_arr_7_2 = arr_7 > 5
+
+print(arr_7)
+print(less_arr_7)
+print(less_arr_7_2)
+print(arr_7[less_arr_7_2])
