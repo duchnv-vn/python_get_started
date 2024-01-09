@@ -1,4 +1,5 @@
 import numpy as np
+import csv
 
 l = [
     [1, 0, 0],
@@ -78,10 +79,18 @@ fancy_arr_6_2 = arr_6[1, np.array([0, 1, 3])]
 
 fancy_arr_6_3 = arr_6[np.array([0, 1, 3]), 1]
 
-print(arr_6)
-print("-" * 50)
-print(fancy_arr_6_1)
-print("-" * 50)
-print(fancy_arr_6_2)
-print("-" * 50)
-print(fancy_arr_6_3)
+# print(arr_6)
+# print("-" * 50)
+# print(fancy_arr_6_1)
+# print("-" * 50)
+# print(fancy_arr_6_2)
+# print("-" * 50)
+# print(fancy_arr_6_3)
+
+with open('section29-numPy/files/AAPL.csv') as file:
+    reader = csv.reader(file, skipinitialspace=True)
+    headers = next(reader)
+    data = np.array(list(reader))
+    dates = data[:, 1]
+
+print(dates)
