@@ -1,5 +1,6 @@
 import numpy as np
 import csv
+from dateutil import parser
 
 l = [
     [1, 0, 0],
@@ -105,7 +106,31 @@ arr_7 = np.arange(1, 11)
 less_arr_7 = np.less(arr_7, 0)
 less_arr_7_2 = arr_7 > 5
 
-print(arr_7)
-print(less_arr_7)
-print(less_arr_7_2)
-print(arr_7[less_arr_7_2])
+# print(arr_7)
+# print(less_arr_7)
+# print(less_arr_7_2)
+# print(arr_7[less_arr_7_2])
+
+with open("section29-numPy/files/AAPL.csv") as file:
+    reader = csv.reader(file, skipinitialspace=True)
+    headers = next(reader)
+    data = np.array(list(reader))
+
+    dates = np.array([parser.parse(date) for date in data[:, 1]])
+    ohlc = data[:, [4, 5, 6, 2]].astype(float)
+
+    highes_close_mask = ohlc[:, 3] > 116.0
+    highes_close = ohlc[highes_close_mask]
+    date_with_highes_close = dates[highes_close_mask]
+
+    highes_close_with_date = np.hstack(
+        (date_with_highes_close.reshape(11, 1), highes_close)
+    )
+    highes_close_with_date_2 = [
+        [date, *row] for date, row in zip(date_with_highes_close, highes_close)
+    ]
+
+# print(date_with_highes_close)
+# print(highes_close)
+# print(highes_close_with_date)
+print(np.array(highes_close_with_date_2))
