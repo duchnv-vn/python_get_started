@@ -87,10 +87,14 @@ fancy_arr_6_3 = arr_6[np.array([0, 1, 3]), 1]
 # print("-" * 50)
 # print(fancy_arr_6_3)
 
-with open('section29-numPy/files/AAPL.csv') as file:
+with open("section29-numPy/files/AAPL.csv") as file:
     reader = csv.reader(file, skipinitialspace=True)
     headers = next(reader)
     data = np.array(list(reader))
     dates = data[:, 1]
+    open_and_close = data[:, [4, 2]].astype(float)
+    diffs = open_and_close[:, 1] - open_and_close[:, 0]
+    diff_percs = (diffs % open_and_close[:, 0]) * 100
 
-print(dates)
+print(open_and_close)
+print(diffs)
