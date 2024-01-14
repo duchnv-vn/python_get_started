@@ -140,36 +140,38 @@ with open("section29-numPy/files/AAPL.csv") as file:
 # === 8. UNIVERSAL FUNCTIONS
 row_num = 1_000_000
 
-start = perf_counter()
-data = [
-    (
-        random.randint(120, 180),
-        random.randint(180, 200),
-        random.randint(300, 440),
-        random.randint(100, 150),
-    )
-    for _ in range(row_num)
-]
-calc = [round((high - low) / close * 100) for (open, high, low, close) in data]
-end = perf_counter()
+# start = perf_counter()
+# data = [
+#     (
+#         random.randint(120, 180),
+#         random.randint(180, 200),
+#         random.randint(300, 440),
+#         random.randint(100, 150),
+#     )
+#     for _ in range(row_num)
+# ]
+# calc = [round((high - low) / close * 100) for (open, high, low, close) in data]
+# end = perf_counter()
 
-print(f"Spent time used by vanila Python code: {end - start} seconds")
+# print(f"Spent time used by vanila Python code: {end - start} seconds")
 
-start = perf_counter()
-data = np.array(
-    [
-        np.array(
-            [
-                np.random.randint(120, 180),
-                np.random.randint(180, 200),
-                np.random.randint(300, 440),
-                np.random.randint(100, 150),
-            ]
-        )
-        * row_num
-    ]
-)
-calc = np.array([np.round((data[:, 1] - data[:, 2]) / data[:, 3] * 100)])
-end = perf_counter()
+# start = perf_counter()
+# data = np.array(
+#     [
+#         np.array(
+#             [
+#                 np.random.randint(120, 180),
+#                 np.random.randint(180, 200),
+#                 np.random.randint(300, 440),
+#                 np.random.randint(100, 150),
+#             ]
+#         )
+#         * row_num
+#     ]
+# )
+# calc = np.array([np.round((data[:, 1] - data[:, 2]) / data[:, 3] * 100)])
+# end = perf_counter()
 
-print(f"Spent time used by Numpy written by C code: {end - start} seconds")
+# print(f"Spent time used by Numpy written by C code: {end - start} seconds")
+
+# === 9. ADDITIONAL MATH AND STATS FUNCTIONS
